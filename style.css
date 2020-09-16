@@ -49,24 +49,38 @@ a {
 }
 
 .tracklist {
+  grid-column: 1/-1;
+  overflow: hidden;
+}
+.tracklist ul {
+  height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  padding: 5px;
   font-size: 14px;
+  align-items: center;
+  animation: scrollTrack 25s linear infinite;
+}
+@keyframes scrollTrack{
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-1488px);
+  }
+  from {
+    transform: translateX(0px);
+  }
 }
 .tracklist li {
   display: inline;
+  padding: 0 10px;
+  white-space: nowrap;
 }
-.list1 {
-  grid-column: 1/-1;
-}
-.list1 li.title {
+.tracklist li.title {
   color:#df1623;
   font-weight: 900;
   font-size: 15px;
 }
-.list1 li h4 {
+.tracklist li h4 {
   font-weight: 900;
   font-size: 15px;
   text-transform: uppercase;
@@ -85,34 +99,36 @@ a {
 .subtitle {
   grid-row: 12/-3;
 }
-.subtitle li a {
+.link li a {
  padding: 2px;
 }
-.subtitle li, .subtitle li a{
+.link li, .link li a{
   font-family: 'Archivo Black', sans-serif;
   font-size: 11px;
   text-orientation: upright;
   letter-spacing: -4px;
   word-spacing: -5px;
 }
-.subtitle li a:hover{
+.link li a:hover{
   color: black;
   background: #fde40d;
 }
-.subtitle li:after {
+.link li:after {
   margin-top: -5px;
   margin-bottom: 5px;
   content:"_";
-  color: #fde40d;
 }
-.subtitle li:last-child:after {
+.link li:last-child:after {
   content:"";
+}
+.subtitle li:after {
+  color: #fde40d;
 }
 .highlight a{
   color:#df1623;
   font-weight: 900;
 }
-.subtitle .highlight a:hover{
+.link .highlight a:hover{
   color: black;
   background:#df1623;
 }
@@ -133,17 +149,21 @@ a {
   text-indent: -9999px;
   white-space: nowrap;      
   overflow: hidden;
+  transition: 0s background-image;
 }
-.twitter {
+.sns a:hover {
+  transition-delay: 0.3s;
+}
+.sns .twitter {
   background-image: url("img/twitter.png");
 }
-.twitter:hover {
+.sns .twitter:hover {
   background-image: url("img/twitter_hover.png");
 }
-.insta {
+.sns .insta {
   background-image: url("img/insta.png");
 }
-.insta:hover {
+.sns .insta:hover {
   background-image: url("img/insta_hover.png");
 }
 
@@ -220,49 +240,80 @@ a {
   background-size: cover;
   -webkit-filter: drop-shadow(0px 0px 2px black);
   filter: drop-shadow(0px 0px 2px black);
+  z-index: 1;
+  transition: 0s background-image;
 }
 .youtube:hover {
   background-image: url("img/youtube_hover.png");
+  transition-delay: 0.3s;
 }
 
 .wiki {
-  grid-row: 2/11;
-  color: #fde40d;
+  grid-row: 2/9;
+  background: #fde40d;
+  color: black;
+  font-size: 12px;
+  font-weight: 900;
   letter-spacing: -1px;
+  word-spacing: -5px;
   text-transform: uppercase;
   text-orientation: upright;
 }
 .wiki:hover {
   animation: changeColor 0.3s linear;
-  color: #df1623;
+  background: #df1623;
 }
 @keyframes changeColor {
   from {
-    color: #fde40d;
+    background: #fde40d;
   }
   to {
-    color: #df1623;
+    background: #df1623;
   }
 }
 
+.video {
+  grid-row: 9/-2;
+  text-transform: uppercase;
+}
+
+.video li a, .video li:after{
+  color: #df1623;
+}
+
 .policeline {
-  grid-row: 11/-2;
+  grid-column: 1/-1;
+  grid-row: -2/-1;
   background: #fde40d;
   overflow: hidden;
 }
-.policeline li {
+.policeline ul {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  color: black;
+}
+.policeline ul li {
   color: black;
   font-size: 18px;
   font-family: 'Archivo Black', sans-serif;
   text-transform: uppercase;
   list-style: disc;
-  margin-top: 29px;
-  word-spacing: 1px;
+  margin-right: 27px;
   white-space: nowrap;
+  transform: translateX(-333px);
+  animation: scrollText 5s linear infinite;
 }
-.list2 {
-  grid-column: 1/-1;
-  grid-row: -2/-1;
+@keyframes scrollText{
+  from {
+    transform: translateX(-333px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+  from {
+    transform: translateX(-333px);
+  }
 }
 
 
